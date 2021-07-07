@@ -47,10 +47,20 @@ public class Supermercado {
 	
 	private Boolean productoExiste(Integer codigoDeProducto) throws ProductoInexistente{
 		// Verifica si un producto existe
+		for(Producto producto: this.productosExistentes)
+			if(producto.getId() == codigoDeProducto)
+				return true;
+		throw new ProductoInexistente("No existe el producto");
+		//return false;
 	}
 	
 	private Producto getProductoPorCodigo(Integer codigoDeProducto) throws ProductoSinStock {
 		// Busca la disponibilidad de un producto
+		for(Producto producto: this.productosExistentes) {
+			if(producto.getId() == codigoDeProducto)
+				return producto;
+		}
+		throw new ProductoSinStock("No hay stock del producto");
 	}
 	
 	public Integer registrarNuevaVenta(Integer dniDelComprador, String nombreDelComprador) {
@@ -61,10 +71,24 @@ public class Supermercado {
 	
 	public Venta getVenta(Integer nueroDeVenta) {
 		// Devuelve una venta en función de su número identificatorio
+		return ventasRealizadas.get(nueroDeVenta);
 	}
 
 	public void agregarAlCarrito(Integer numeroDeVenta, Integer codigoDeProducto) throws ProductoSinStock, ProductoInexistente {
 		// Incorpora al carrito de compras de la venta identificada por el "numeroDeVenta", el producto identificado por el "codigoDeProducto"
+		if(ventasRealizadas.containsValue(numeroDeVenta)) {
+			if(this.productoExiste(codigoDeProducto)) {
+				if(this.productosExistentes.remove(this.getProductoPorCodigo(codigoDeProducto)))
+				{
+					ventasRealizadas.get(numeroDeVenta).aniadirImporte(this.getProductoPorCodigo(codigoDeProducto).getImporte());
+					return;
+				}
+				else
+					throw new ProductoSinStock("No hay stock");
+			}
+			else
+				throw new ProductoInexistente("No existe el producto");
+		}
 	}
 	
 

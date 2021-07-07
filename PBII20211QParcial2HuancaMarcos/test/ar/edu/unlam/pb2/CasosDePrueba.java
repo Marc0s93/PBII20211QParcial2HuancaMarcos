@@ -120,6 +120,7 @@ public class CasosDePrueba {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ProductoInexistente e) {
+			
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
