@@ -10,7 +10,7 @@ public abstract class Indumentaria extends Producto {
 		this.color = color;
 	}
 
-	public Object getTalle() {
+	public String getTalle() {
 		return talle;
 	}
 

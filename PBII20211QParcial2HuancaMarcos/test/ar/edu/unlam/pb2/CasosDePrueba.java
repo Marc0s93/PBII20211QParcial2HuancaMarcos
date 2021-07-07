@@ -60,7 +60,7 @@ public class CasosDePrueba {
 		Indumentaria producto = new Zapatilla(6, "De running", 42, "Nike", "Blancas", 5000.0);
 		
 		assertEquals("De running", ((Zapatilla)producto).getDescripcion());
-		assertEquals("42", producto.getTalle());
+		assertEquals("42", producto.getTalle().toString());
 		assertEquals("Blancas", producto.getColor());
 		assertEquals("Nike", ((Zapatilla)producto).getMarca());
 	}
