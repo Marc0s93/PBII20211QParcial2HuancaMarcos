@@ -6,7 +6,7 @@ public abstract class Comestible extends Producto{
 	
 	
 	public Comestible(Integer id, String descripcion, String fechaDeElaboracion, String fechaDeVencimiento, String marca, Double importe) {
-		super(descripcion, marca, importe);
+		super(id, descripcion, marca, importe);
 		this.fechaDeElaboracion = fechaDeElaboracion;
 		this.fechaDeVencimiento = fechaDeVencimiento;
 	}

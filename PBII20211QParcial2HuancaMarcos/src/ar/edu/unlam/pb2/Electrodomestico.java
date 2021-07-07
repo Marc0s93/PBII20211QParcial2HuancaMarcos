@@ -3,8 +3,8 @@ package ar.edu.unlam.pb2;
 public abstract class Electrodomestico extends Producto {
 	private Integer garantia;
 	
-	public Electrodomestico(String descripcion, String marca, Double importe, Integer garantia) {
-		super(descripcion, marca, importe);
+	public Electrodomestico(Integer id, String descripcion, String marca, Double importe, Integer garantia) {
+		super(id, descripcion, marca, importe);
 		this.garantia = garantia;
 	}
 	
