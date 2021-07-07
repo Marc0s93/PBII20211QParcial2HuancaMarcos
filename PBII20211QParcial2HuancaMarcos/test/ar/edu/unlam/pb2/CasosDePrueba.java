@@ -51,7 +51,7 @@ public class CasosDePrueba {
 		Indumentaria producto = new Remera(5, "Básica", "XL", "Lacoste", "Azul", 2000.0);
 		
 		assertEquals("Básica", ((Remera)producto).getDescripcion());
-		assertEquals("XL", ((Remera) producto).getTalle());
+		assertEquals("XL", producto.getTalle());
 		assertEquals("Lacoste", ((Remera)producto).getMarca());
 	}
 	
